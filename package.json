@@ -1,5 +1,6 @@
 {
   "name": "requirejs",
+  "version": "0.0.1",
   "volo": {
     "url": "https://raw.github.com/jrburke/requirejs/{version}/require.js"
   },
