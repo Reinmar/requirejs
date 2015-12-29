@@ -578,7 +578,12 @@ var requirejs, require, define;
                     if (mod.exports) {
                         return (defined[mod.map.id] = mod.exports);
                     } else {
-                        return (mod.exports = defined[mod.map.id] = {});
+                        var exports = {};
+                        // Hopefully temporary workaround for https://phabricator.babeljs.io/T6880.
+                        Object.defineProperty(exports, '__esModule', {
+                            value: true
+                        });
+                        return (mod.exports = defined[mod.map.id] = exports);
                     }
                 }
             },
